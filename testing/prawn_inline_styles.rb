@@ -12,7 +12,7 @@ class Prawn::Document
     TAG_PATTERN = %r{(</?[ib]>)}
   
     def process(text) #:nodoc:  
-      segments = text.split(TAG_PATTERN).delete_if{|x| x.empty? }  
+      text.split(TAG_PATTERN).delete_if{|x| x.empty? }
     end    
 
     def style_tag?(text)
