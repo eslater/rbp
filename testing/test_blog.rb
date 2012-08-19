@@ -34,7 +34,7 @@ class Blog < OpenStruct
 end  
 
 require "test/unit"
-require "test_unit_extensions"
+require_relative "test_unit_extensions"
 
 require "time"
 require "nokogiri"

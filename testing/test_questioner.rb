@@ -26,7 +26,7 @@ class Questioner
 end  
 
 require "test/unit"
-require "test_unit_extensions"
+require_relative "test_unit_extensions"
 
 require "flexmock/test_unit"
 

@@ -1,3 +1,6 @@
+require 'minitest/reporters'
+MiniTest::Reporters.use!
+
 module Test::Unit
   # Used to fix a minor minitest/unit incompatibility in flexmock 
   AssertionFailedError = Class.new(StandardError)
