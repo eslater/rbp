@@ -25,7 +25,7 @@ describe "VolumeTest" do
 
     # when given 3 args, set l=x, w=y and h=z
     z = 7
-    volume(x,y,z)
+    volume(x,y,z).should == x*y*z
 
     # when given a hash, use :length, :width, :height
     volume(length: x, width: y, height: z).should == x*y*z
