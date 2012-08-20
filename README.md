@@ -2,7 +2,7 @@ This is my fork of Greg Brown's repo for the Ruby Best Practices book.  I
 have updated these examples to work with Ruby 1.9.3 and a current Ruby environment,
 specifically adding a Gemfile to manage dependencies through Ruby.  I am
 doing this for a book review that I am leading at my company.  You can see
-my presentation on the first chapter [here](https://docs.google.com/presentation/d/12P_uHSkHBoB1WCgyh2m8iiiwZQFP0tdcM2lX5uYxMoo/edit)
+my presentation on the first chapter [here](https://docs.google.com/presentation/d/12P_uHSkHBoB1WCgyh2m8iiiwZQFP0tdcM2lX5uYxMoo/edit).
 
 == "Ruby Best Practices" Code Samples ==
 
