@@ -10,3 +10,4 @@ group :test do
   gem 'rspec'
 end
 gem 'prawn'
+gem 'nokogiri'
