@@ -28,3 +28,5 @@ this repository. For now, it will be incomplete and in constant flux.
 Enjoy, and please contact me with any questions.
 
 -greg
+
+Brent's version
