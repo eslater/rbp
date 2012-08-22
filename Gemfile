@@ -8,6 +8,7 @@ group :test do
   gem 'minitest-reporters', '>= 0.5.0'
   gem 'flexmock'
   gem 'rspec'
+  gem 'rake'
 end
 gem 'prawn'
 gem 'nokogiri'

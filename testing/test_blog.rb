@@ -59,7 +59,7 @@ class BlogTest < Test::Unit::TestCase
   end
 
   must "be RSS v 2.0" do 
-     assert_equal "2.0", @feed.at("rss")["version"]
+    assert_equal "2.0", @feed.at("rss")["version"]
   end
 
   must "have a title of Awesome" do
@@ -79,7 +79,7 @@ class BlogTest < Test::Unit::TestCase
   end
 
   def text_at(*args)
-    args.inject(@feed) { |s,r| s.send(:at, r) }.inner_text
+    args.inject(@feed) { |s,r| s.at(r) }.inner_text
   end
      
 end
