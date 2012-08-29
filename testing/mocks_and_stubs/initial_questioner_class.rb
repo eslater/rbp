@@ -16,7 +16,7 @@ class Questioner
 
 end
 
-if __FILE__ == $0
+if __FILE__ == $PROGRAM_NAME
   q = Questioner.new
   puts q.ask("Are you happy") ? "Good I'm Glad" : "That's Too Bad"
 end
