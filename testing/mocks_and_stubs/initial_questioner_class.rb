@@ -15,3 +15,8 @@ class Questioner
   end
 
 end
+
+if __FILE__ == $0
+  q = Questioner.new
+  puts q.ask("Are you happy") ? "Good I'm Glad" : "That's Too Bad"
+end

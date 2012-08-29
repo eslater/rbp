@@ -21,7 +21,9 @@ class Questioner
 end
 
 require "test/unit"
-require_relative "test_unit_extensions"
+require_relative "../test_unit_extensions"
+
+require 'flexmock/test_unit'
 
 class HappinessTest < Test::Unit::TestCase
 
@@ -30,13 +32,13 @@ class HappinessTest < Test::Unit::TestCase
   end
 
   must "respond 'Good I'm Glad' when inquire_about_happiness gets 'yes'" do
-    def @questioner.ask(question); true; end
-    assert_equal "Good I'm Glad", @questioner.inquire_about_happiness
+    stubbed = flexmock(@questioner, :ask=>true)
+    assert_equal "Good I'm Glad", stubbed.inquire_about_happiness
   end
 
   must "respond 'That's Too Bad' when inquire_about_happiness gets 'no'" do
-    def @questioner.ask(question); false; end
-    assert_equal "That's Too Bad", @questioner.inquire_about_happiness
+    stubbed = flexmock(@questioner, :ask=>false)
+    assert_equal "That's Too Bad", stubbed.inquire_about_happiness
   end
 end
 

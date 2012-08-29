@@ -1,9 +1,6 @@
 require "builder"     
 require "ostruct"
 
-# This one is supposed to fail, can you tell why??
-# HINT: the DocString is exactly as it appears in the book, but it is off by only 1 character
-
 class Blog < OpenStruct             
 
   def entries
@@ -37,22 +34,12 @@ class Blog < OpenStruct
 end  
 
 require "test/unit"
-require_relative "test_unit_extensions"
+require_relative "../test_unit_extensions"
 
 require "time"
 require "nokogiri"
 
 class BlogTest < Test::Unit::TestCase
-
-FEED = <<-EOS
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
-><channel><title>Awesome</title><link>http://majesticseacreature.com/</link>
-<description>Totally awesome</description><language>en-us</language><item>
-<title>First Post</title><description>Nothing interesting</description>
-<author>Gregory Brown</author><pubDate>2008-08-08 00:00:00 -0400</pubDate>
-<link>http://majesticseacreature.com/awesome.html</link>
-<guid>http://majesticseacreature.com/awesome.html</guid></item></channel></rss>
-EOS
 
   def setup
     @blog = Blog.new
@@ -67,11 +54,32 @@ EOS
     entry.published_date = Time.parse("08/08/2008") 
     entry.url            = "http://majesticseacreature.com/awesome.html" 
   
-    @blog.entries << entry
+    @blog.entries << entry  
+    @feed = Nokogiri::XML(@blog.to_rss)
   end
 
-  must "have a totally awesome RSS feed" do
-    assert_equal FEED.delete("\n"), @blog.to_rss
+  must "be RSS v 2.0" do 
+    assert_equal "2.0", @feed.at("rss")["version"]
+  end
+
+  must "have a title of Awesome" do
+    assert_equal "Awesome", text_at("rss","title")
+  end
+
+  must "have a description of Totally Awesome" do
+    assert_equal "Totally awesome", text_at("rss", "description")
+  end
+
+  must "have an author of Gregory Brown" do
+    assert_equal "Gregory Brown", text_at("rss", "author")
+  end
+
+  must "have an entry with the title: First Post" do
+    assert_equal "First Post", text_at("item", "title")
+  end
+
+  def text_at(*args)
+    args.inject(@feed) { |s,r| s.at(r) }.inner_text
   end
      
 end

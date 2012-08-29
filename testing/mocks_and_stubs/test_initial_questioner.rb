@@ -18,7 +18,7 @@ class Questioner
 end
 
 require "test/unit"
-require_relative "test_unit_extensions"
+require_relative "../test_unit_extensions"
 
 class QuestionerTest < Test::Unit::TestCase
 
@@ -40,7 +40,7 @@ class QuestionerTest < Test::Unit::TestCase
 
   %w[Note yesterday xyzaty].each do |mu|
     must "return nil because #{mu} is not a variant of 'yes' or 'no'" do
-      assert @questioner.yes_or_no(mu), "#{mu.inspect} expected to parse as nil"
+      assert_nil @questioner.yes_or_no(mu), "#{mu.inspect} expected to parse as nil"
     end
   end
 
