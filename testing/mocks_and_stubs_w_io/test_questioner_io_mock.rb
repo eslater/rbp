@@ -1,5 +1,5 @@
 class Questioner
-
+  attr_accessor :input, :output
   def initialize(input=STDIN, out=STDOUT)
     @input = input
     @output = out

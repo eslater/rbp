@@ -12,3 +12,4 @@ group :test do
 end
 gem 'prawn'
 gem 'nokogiri'
+gem 'ruport'
