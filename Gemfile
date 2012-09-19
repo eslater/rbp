@@ -13,3 +13,4 @@ end
 gem 'prawn'
 gem 'nokogiri'
 gem 'ruport'
+gem 'builder'
