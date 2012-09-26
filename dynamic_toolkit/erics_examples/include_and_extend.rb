@@ -78,6 +78,20 @@ se.extend ExtendThis
 
 se.foo
 
+#lets add one more!
+puts "\nSecond Run:\n\n"
+
+module OnceMore
+  def foo
+    puts "Once More"
+    super
+  end
+end
+
+se.extend OnceMore
+
+se.foo
+
 #-------
 # Hooks!
 #-------
