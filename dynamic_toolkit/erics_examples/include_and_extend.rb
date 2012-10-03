@@ -32,10 +32,15 @@ begin
   raise "this shouldnt run"
 rescue NoMethodError; end
 
+b = Baz.new
+b.extend Foo
+raise "this is wrong" unless b.foo == "Sup"
+
 #-----------------------
 # Inheritance and Mixins
 #-----------------------
 
+#classes
 class Example
   def foo
     puts "Example"
@@ -50,6 +55,7 @@ class SubExample < Example
   end
 end
 
+#mixins
 module BaseInclude
   def foo
     puts "BaseInclude"
